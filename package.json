@@ -1,0 +1,67 @@
+{
+  "name": "electre-js",
+  "description": "Multi-criteria decision analysis methods written in JS",
+  "version": "1.0.0",
+  "author": "liitfr",
+  "ava": {
+    "verbose": "true",
+    "serial": "true"
+  },
+  "browser": "./lib/electre.browser.min.js",
+  "bugs": {
+    "url": "https://github.com/liitfr/electre-js/issues"
+  },
+  "dependencies": {
+    "tiny-worker": "^2.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "husky": "^0.14.3",
+    "nyc": "^11.1.0",
+    "webpack": "^2.2.0",
+    "worker-loader": "^0.8.1"
+  },
+  "files": [
+    "./lib/electre.node.min.js",
+    "./lib/electre.browser.min.js",
+    "./lib/EI.worker.min.js",
+    "./lib/EII.worker.min.js",
+    "./lib/EIII.worker.min.js",
+    "./lib/EIV.worker.min.js",
+    "./lib/ETri.worker.min.js"
+  ],
+  "homepage": "https://github.com/liitfr/electre-js#readme",
+  "keywords": [
+    "decision making",
+    "multi-criteria decision analysis",
+    "business intelligence",
+    "ELECTRE",
+    "javascript"
+  ],
+  "license": "MIT",
+  "main": "./lib/electre.node.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liitfr/electre-js.git"
+  },
+  "scripts": {
+    "build": "WEBPACK_ENV=build webpack -p",
+    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
+    "coverage": "nyc --reporter=html ava && open coverage/index.html",
+    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint ./src/",
+    "pretest": "npm run lint",
+    "test": "ava",
+    "precommit": "npm run test",
+    "prepush": "rm -rf ./lib/* && npm run build"
+  }
+}

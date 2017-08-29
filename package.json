@@ -7,7 +7,7 @@
     "verbose": "true",
     "serial": "true"
   },
-  "browser": "./lib/electre.browser.min.js",
+  "browser": "./lib/electre.web.min.js",
   "bugs": {
     "url": "https://github.com/liitfr/electre-js/issues"
   },

@@ -62,7 +62,7 @@ const webConfig = {
             loader: 'worker-loader',
             options: {
               inline: false,
-              name: `[name]${extension}`,
+              name: `workers/[name]${extension}`,
             },
           },
         ],

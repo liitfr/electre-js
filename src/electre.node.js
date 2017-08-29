@@ -58,7 +58,7 @@ export const electre = {
     } else {
       this._idle = false;
       if (allowedVersions.indexOf(version) !== -1) {
-        if (installedWorkers.indexOf(version) !== -1) {
+        if (installedWorkers.indexOf(version) === -1) {
           installedWorkers[version] = new NodeWorker(`./workers/${version}.worker.js`);
         }
         // launch process

@@ -1,4 +1,5 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+/* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
 
 /**
  * ELECTRE version for Node.js.
@@ -50,12 +51,12 @@ export const electre = {
    */
 
   start: function start(version) {
-    if (!this.idle) {
+    if (!this._idle) {
       // error
     } else {
-      this.idle = false;
+      this._idle = false;
       if (allowedVersions.indexOf(version) !== -1) {
-        if (installedWorkers.indexOf(version) !== -1) {
+        if (installedWorkers.indexOf(version) === -1) {
           const RequiredWorker = require(`./workers/${version}.worker.js`); // eslint-disable-line
           installedWorkers[version] = new RequiredWorker();
           installedWorkers[version].onmessage = (e) => {
@@ -64,10 +65,14 @@ export const electre = {
           };
         }
         // launch process
+        installedWorkers[version].postMessage({
+          foo: 'bar',
+          version,
+        });
       } else {
         // ... error
       }
-      this.idle = true;
+      this._idle = true;
     }
   },
 

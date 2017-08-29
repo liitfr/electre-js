@@ -1,7 +1,7 @@
 {
   "name": "electre-js",
   "description": "Multi-criteria decision analysis methods written in JS",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "liitfr",
   "ava": {
     "verbose": "true",

@@ -1,7 +1,7 @@
 {
   "name": "electre-js",
   "description": "Multi-criteria decision analysis methods written in JS",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "liitfr",
   "ava": {
     "verbose": "true",
@@ -31,19 +31,13 @@
     "worker-loader": "^0.8.1"
   },
   "files": [
-    "./lib/electre.node.min.js",
-    "./lib/electre.browser.min.js",
-    "./lib/EI.worker.min.js",
-    "./lib/EII.worker.min.js",
-    "./lib/EIII.worker.min.js",
-    "./lib/EIV.worker.min.js",
-    "./lib/ETri.worker.min.js"
+    "lib"
   ],
   "homepage": "https://github.com/liitfr/electre-js#readme",
   "keywords": [
     "decision making",
     "multi-criteria decision analysis",
-    "business intelligence",
+    "Business Intelligence",
     "ELECTRE",
     "javascript"
   ],
@@ -54,14 +48,13 @@
     "url": "git+https://github.com/liitfr/electre-js.git"
   },
   "scripts": {
-    "build": "WEBPACK_ENV=build webpack -p",
+    "build": "rm -rf ./lib/* && WEBPACK_ENV=build webpack -p",
     "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
     "coverage": "nyc --reporter=html ava && open coverage/index.html",
     "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint ./src/",
     "pretest": "npm run lint",
     "test": "ava",
-    "precommit": "npm run test",
-    "prepush": "rm -rf ./lib/* && npm run build"
+    "precommit": "npm run test"
   }
 }

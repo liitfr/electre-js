@@ -1,7 +1,17 @@
 self.onmessage = (e) => {
-  const version = e.data.version;
-  const result = {
-    message: `You're using ELECTRE ${version}`,
+  // todo control data and return error if incorrect
+  const inputData = e.data;
+  // Dummy code : fibonacci number
+  let i;
+  const fib = [];
+  fib[0] = 0;
+  fib[1] = 1;
+  for (i = 2; i <= inputData.threshold; i += 1) {
+    fib[i] = fib[i - 2] + fib[i - 1];
+  }
+  const response = {
+    message: 'thanks for using EIII',
+    result: fib[inputData.threshold],
   };
-  self.postMessage(result);
+  self.postMessage(response);
 };

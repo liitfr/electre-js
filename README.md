@@ -1,7 +1,23 @@
 # electre-js
 
 ELECTRE is a set of multi-criteria decision analysis methods.  
-👀 work in progress, in very early development: Do not use
+👀 work in progress, in very early development: Do not use  
+
+You can use this package in your Node.js and / or web projects.  
+It uses Workers to calculate results in a separated thread.  
+
+## Implemented methods
+
+- [x] ELECTRE I
+- [ ] ELECTRE I_s
+- [ ] ELECTRE I_v
+- [ ] ELECTRE II
+- [ ] ELECTRE III
+- [ ] ELECTRE IV
+- [ ] ELECTRE TRI
+- [ ] ELECTRE TRI ME
+
+Algorithms come from [J-Electre](https://github.com/Valdecy/J-Electre).
 
 ## Web version
 
@@ -25,6 +41,23 @@ module.exports = {
   ]
 }
 ```
+
+## API
+
+### import electre-js
+
+```
+import electre from 'electre-js';
+```
+TODO : singleton
+
+### electre.start(version, inputData)
+
+TODO : parameters & return specs
+
+### electre.kill()
+
+TODO : parameters & return specs
 
 ## Demo
 

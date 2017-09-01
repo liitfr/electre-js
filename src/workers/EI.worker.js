@@ -1,3 +1,5 @@
+/** Worker that calculates ELECTRE I. */
+
 self.onmessage = (e) => {
   // todo control data and return error if incorrect
   const inputData = e.data;

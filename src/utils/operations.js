@@ -1,3 +1,9 @@
+/**
+ * Matrix Operations module.
+ * @module electre/utils/operations
+ */
+
+/** MatrixOperations class */
 class MatrixOperations {
   /**
    * getWeightsSum.
@@ -66,9 +72,9 @@ class MatrixOperations {
 
   static getColumnSum(array) {
     const arrayC = [];
-    let i;
     let j;
     for (j = 0; j < array[0].length; j += 1) {
+      let i;
       for (i = 0; i < array.length; i += 1) {
         arrayC[j] += array[i][j];
       }
@@ -88,8 +94,8 @@ class MatrixOperations {
   static getRowSum(array) {
     const arrayR = [];
     let i;
-    let j;
     for (i = 0; i < array.length; i += 1) {
+      let j;
       for (j = 0; j < array[0].length; j += 1) {
         arrayR[i] += array[i][j];
       }
@@ -109,9 +115,9 @@ class MatrixOperations {
   static getNormalizedPerformanceMatrix(array) {
     const arrayNPM = Array(array.length).fill(Array(array[0].length));
     const a = this.getColumnSum(array);
-    let i;
     let j;
     for (j = 0; j < array[0].length; j += 1) {
+      let i;
       for (i = 0; i < array.length; i += 1) {
         arrayNPM[i][j] = array[i][j] / a[j];
       }
@@ -130,10 +136,10 @@ class MatrixOperations {
 
   static getMaxValueInColumn(array) {
     const arrayMax = [];
-    let i;
     let j;
     for (j = 0; j < array[0].length; j += 1) {
       let max = array[0][j];
+      let i;
       for (i = 0; i < array.length; i += 1) {
         if (array[i][j] >= max) {
           max = array[i][j];
@@ -176,10 +182,10 @@ class MatrixOperations {
 
   static getMinValueInColumn(array) {
     const arrayMin = [];
-    let i;
     let j;
     for (j = 0; j < array[0].length; j += 1) {
       let min = array[0][j];
+      let i;
       for (i = 0; i < array.length; i += 1) {
         if (array[i][j] <= min) {
           min = array[i][j];
@@ -322,8 +328,8 @@ class MatrixOperations {
   static get2DElementCountSpecificValue(array, b) {
     let elementcount = 0;
     let i;
-    let j;
     for (i = 0; i < array.length; i += 1) {
+      let j;
       for (j = 0; j < array[0].length; j += 1) {
         if (array[i][j] === b) {
           elementcount += 1;
@@ -345,8 +351,8 @@ class MatrixOperations {
   static getTransposed2DMatrix(array) {
     const arrayT2D = Array(array[0].length).fill(Array(array.length));
     let i;
-    let j;
     for (i = 0; i < array.length; i += 1) {
+      let j;
       for (j = 0; j < array[0].length; j += 1) {
         arrayT2D[j][i] = array[i][j];
       }
@@ -367,8 +373,8 @@ class MatrixOperations {
   static get2DMatrixSum(array1, array2) {
     const arrayS2D = Array(array1.length).fill(Array(array1[0].length));
     let i;
-    let j;
     for (i = 0; i < array1.length; i += 1) {
+      let j;
       for (j = 0; j < array1[0].length; j += 1) {
         arrayS2D[i][j] = array1[i][j] + array2[i][j];
       }
@@ -388,8 +394,8 @@ class MatrixOperations {
   static get2DMatrixTotalSum(array) {
     let total = 0;
     let i;
-    let j;
     for (i = 0; i < array.length; i += 1) {
+      let j;
       for (j = 0; j < array[0].length; j += 1) {
         total += array[i][j];
       }
@@ -410,8 +416,8 @@ class MatrixOperations {
   static get2DDirectMatrixMult(array1, array2) {
     const arrayM2D = Array(array1.length).fill(Array(array1.length));
     let i;
-    let j;
     for (i = 0; i < array1.length; i += 1) {
+      let j;
       for (j = 0; j < array1[0].length; j += 1) {
         arrayM2D[i][j] = array1[i][j] * array2[i][j];
       }
@@ -433,10 +439,10 @@ class MatrixOperations {
     const arrayRD = Array(array1.length - 1).fill(Array(array1[0].length));
     let p = 0;
     let i;
-    let j;
     for (i = 0; i < array1.length; i += 1) {
       if (i !== row) {
         let q = 0;
+        let j;
         for (j = 0; j < array1[0].length; j += 1) {
           arrayRD[p][q] = array1[i][j];
           q += 1;
@@ -461,8 +467,8 @@ class MatrixOperations {
   static get2DSearchString(R, C, array) {
     let value = 'Not Found!';
     let i;
-    let j;
     for (i = 1; i < array.length; i += 1) {
+      let j;
       for (j = 1; j < array[0].length; j += 1) {
         if (array[i][0].equals(R) && array[0][j].equals(C)) {
           value = array[i][j];
@@ -487,8 +493,8 @@ class MatrixOperations {
   static get2DSearchStringUpper(R, C, array) {
     let value = 'Not Found!';
     let i;
-    let j;
     for (i = 1; i < array.length; i += 1) {
+      let j;
       for (j = i + 1; j < array[0].length; j += 1) {
         if (array[i][0].equals(R) && array[0][j].equals(C)) {
           value = array[i][j];
@@ -513,9 +519,9 @@ class MatrixOperations {
     const arrayRD = Array(array1.length).fill(Array(array1[0].length - 1));
     let p = 0;
     let i;
-    let j;
     for (i = 0; i < array1.length; i += 1) {
       let q = 0;
+      let j;
       for (j = 0; j < array1[0].length; j += 1) {
         if (j !== column) {
           arrayRD[p][q] = array1[i][j];
@@ -541,9 +547,9 @@ class MatrixOperations {
     const arrayRD = Array(array1.length).fill(Array(array1[0].length - 1));
     let p = 0;
     let i;
-    let j;
     for (i = 0; i < array1.length; i += 1) {
       let q = 0;
+      let j;
       for (j = 0; j < array1[0].length; j += 1) {
         if (j !== column) {
           arrayRD[p][q] = array1[i][j];
@@ -569,10 +575,10 @@ class MatrixOperations {
     const arrayRD = Array(array1.length - 1).fill(Array(array1[0].length));
     let p = 0;
     let i;
-    let j;
     for (i = 0; i < array1.length; i += 1) {
       if (i !== row) {
         let q = 0;
+        let j;
         for (j = 0; j < array1[0].length; j += 1) {
           arrayRD[p][q] = array1[i][j];
           q += 1;

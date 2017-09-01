@@ -3,19 +3,17 @@
 
 /**
  * ELECTRE for Web usage.
- * @module electre/web
- * @see module:electre/node
+ * @module electre/electre.web
  */
-
-export const name = 'web';
 
 /**
  * List of supported ELECTRE versions.
+ * For any new version XX, a worker named XX.worker.js must be implemented
  *
  * @type Array
  */
 
-const allowedVersions = ['EI', 'EII', 'EIII', 'EIV', 'ETri'];
+const allowedVersions = ['EI'];
 
 /**
  * List of installed workers.
@@ -32,7 +30,7 @@ const installedWorkers = [];
  * @namespace electre
  */
 
-export const electre = {
+const electre = {
 
   /**
    * Calculator's state.
@@ -76,8 +74,13 @@ export const electre = {
     } else {
       this._idle = false;
       if (allowedVersions.indexOf(version) !== -1) {
-        // Create a new Promise that will be returned
+        // getters for promise's resolve & reject functions
+        let getResolve;
+        let getReject;
+        // Create a new Promise of calculation result that will be returned
         this._promise = new Promise((resolve, reject) => {
+          getResolve = resolve;
+          getReject = reject;
           if (installedWorkers.indexOf(version) === -1) {
             const RequiredWorker = require(`./workers/${version}.worker.js`); // eslint-disable-line
             installedWorkers[version] = new RequiredWorker();
@@ -97,6 +100,9 @@ export const electre = {
           // Now we can start calculation by calling web worker
           installedWorkers[version].postMessage(inputData);
         });
+        // add resolve & reject getters to promise
+        this._promise.resolve = getResolve;
+        this._promise.reject = getReject;
         return this._promise;
       }
       throw new Error('This version of ELECTRE isn\'t supported 👀');
@@ -113,11 +119,16 @@ export const electre = {
 
   kill: function kill() {
     if (!this._idle) {
-      // terminate
+      // terminate worker
       installedWorkers[this._version].terminate();
+      // reject promise
       this._promise.reject(new Error('Calculation has been killed 🔫'));
+      // reset idle
+      this._idle = true;
     }
-    throw new Error('There\'s no calculation to kill 👀');
+    // else no error
   },
 
 };
+
+export { electre as default };

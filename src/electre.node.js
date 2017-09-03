@@ -6,12 +6,12 @@ import Worker from 'tiny-worker';
 import path from 'path';
 
 /**
- * ELECTRE for Node.js usage.
+ * ELECTRE for Node.js usage
  * @module electre/electre.node
  */
 
 /**
- * List of supported ELECTRE versions.
+ * List of supported ELECTRE versions
  * For any new version XX, a worker named XX.worker.js must be implemented
  *
  * @type Array
@@ -20,7 +20,7 @@ import path from 'path';
 const allowedVersions = ['EI'];
 
 /**
- * List of installed workers.
+ * List of installed workers
  *
  * @type Array
  */
@@ -28,7 +28,7 @@ const allowedVersions = ['EI'];
 const installedWorkers = [];
 
 /**
- * ELECTRE Calculator object for Node.js.
+ * ELECTRE Calculator object for Node.js
  * @type {object}
  * @exports electre/node/electre
  * @namespace electre
@@ -37,7 +37,7 @@ const installedWorkers = [];
 const electre = {
 
   /**
-   * Calculator's state.
+   * Calculator's state
    * @memberof electre
    * @type {boolean}
    */
@@ -45,7 +45,7 @@ const electre = {
   _idle: true,
 
   /**
-   * Current ELECTRE version requested.
+   * Current ELECTRE version requested
    * @memberof electre
    * @type {string}
    */
@@ -53,7 +53,7 @@ const electre = {
   _version: null,
 
   /**
-   * Promise object returned by caculator.
+   * Promise object returned by caculator
    * @memberof electre
    * @type {Promise}
    */
@@ -61,7 +61,7 @@ const electre = {
   _promise: null,
 
   /**
-   * Start calculation.
+   * Start calculation
    * @memberof electre
    * @method start
    * @param {string} version Version of ELECTRE to use

@@ -53,7 +53,31 @@ TODO : singleton
 
 ### electre.start(version, inputData)
 
-TODO : parameters & return specs
+#### EI
+
+##### inputData
+
+| properties              | mandatory   | type                          | rules                                                                             |
+|-------------------------|-------------|-------------------------------|-----------------------------------------------------------------------------------|
+| numberOfCriterias       | true        | number                        | > 0                                                                               |
+| numberOfAlternatives    | true        | number                        | > 1                                                                               |
+| criterias               | true        | array of strings              | size = numberOfCriterias, all values are unique, no undefined                     |
+| weights                 | true        | array of numbers              | size = size of criterias, no undefined                                            |
+| alternatives            | true        | array of strings              | size = numberOfAlternatives, all values are unique, no undefined                  |
+| evaluations             | true        | array of arrays of numbers    | matrix n * p where n = size of alternatives & p = size of criterias, no undefined |
+| cThreshold              | true        | number                        | 0 < value < 1                                                                     |
+| dThreshold              | true        | number                        | 0 < value < 1                                                                     |
+
+##### return
+
+| properties   |  type                        | rules                                                             |
+|--------------|------------------------------|-------------------------------------------------------------------|
+| inputData    |  object                      | inputData passed to the worker                                    |
+| concordance  |  array of arrays of numbers  | square matrix n * n where n = alternatives size                   |
+| discordance  |  array of arrays of numbers  | square matrix n * n where n = alternatives size                   |
+| credibility  |  array of arrays of numbers  | square matrix n * n where n = alternatives size. Values = 0 or 1  |
+| kernel       |  array of strings            | partition of alternatives                                         |
+| dominated    |  array of strings            | partition of alternatives                                         |
 
 ### electre.kill()
 

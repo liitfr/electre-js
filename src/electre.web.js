@@ -2,12 +2,12 @@
 /* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
 
 /**
- * ELECTRE for Web usage.
+ * ELECTRE for Web usage
  * @module electre/electre.web
  */
 
 /**
- * List of supported ELECTRE versions.
+ * List of supported ELECTRE versions
  * For any new version XX, a worker named XX.worker.js must be implemented
  *
  * @type Array
@@ -16,7 +16,7 @@
 const allowedVersions = ['EI'];
 
 /**
- * List of installed workers.
+ * List of installed workers
  *
  * @type Array
  */
@@ -24,7 +24,7 @@ const allowedVersions = ['EI'];
 const installedWorkers = [];
 
 /**
- * ELECTRE Calculator object for web.
+ * ELECTRE Calculator object for web
  * @type {object}
  * @exports electre/web/electre
  * @namespace electre
@@ -33,7 +33,7 @@ const installedWorkers = [];
 const electre = {
 
   /**
-   * Calculator's state.
+   * Calculator's state
    * @memberof electre
    * @type {boolean}
    */
@@ -41,7 +41,7 @@ const electre = {
   _idle: true,
 
   /**
-   * Current ELECTRE version requested.
+   * Current ELECTRE version requested
    * @memberof electre
    * @type {string}
    */
@@ -49,7 +49,7 @@ const electre = {
   _version: null,
 
   /**
-   * Promise object returned by caculator.
+   * Promise object returned by caculator
    * @memberof electre
    * @type {Promise}
    */
@@ -57,7 +57,7 @@ const electre = {
   _promise: null,
 
   /**
-   * Start calculation.
+   * Start calculation
    * @memberof electre
    * @method start
    * @param {string} version Version of ELECTRE to use

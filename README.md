@@ -1,10 +1,10 @@
 # electre-js
 
 ELECTRE is a set of multi-criteria decision analysis methods.  
-👀 work in progress, in very early development: Do not use  
+👀 **work in progress**, in very early development: Do not use  
 
 You can use this package in your Node.js and / or web projects.  
-It uses Workers to calculate results in a separated thread.  
+It uses **Workers** to calculate results in a separated thread.  
 
 ## Implemented methods
 
@@ -44,18 +44,22 @@ module.exports = {
 
 ## API
 
-### import electre-js
-
+### How to use
 ```
 import electre from 'electre-js';
 ```
-TODO : singleton
+where `electre` is an object with two methods : `start` & `kill` as described bellow.  
+**You can only run one calculation at a time.**  
 
 ### electre.start(version, inputData)
 
-#### EI
+Set calculator state to busy (`electre._idle = false`) and send a message to related worker that will handle calculation. Throws an error if calculator isn't idle.  
+
+#### if version = 'EI'
 
 ##### inputData
+
+An object with following properties :
 
 | properties              | mandatory   | type                          | rules                                                                             |
 |-------------------------|-------------|-------------------------------|-----------------------------------------------------------------------------------|
@@ -68,7 +72,9 @@ TODO : singleton
 | cThreshold              | true        | number                        | 0 < value < 1                                                                     |
 | dThreshold              | true        | number                        | 0 < value < 1                                                                     |
 
-##### return
+##### returns
+
+A promise of an object with following properties ;   
 
 | properties   |  type                        | rules                                                             |
 |--------------|------------------------------|-------------------------------------------------------------------|
@@ -81,7 +87,8 @@ TODO : singleton
 
 ### electre.kill()
 
-TODO : parameters & return specs
+Ask to `terminate` busy worker and set calculator state back to idle (`electre._idle = true`).  
+Promise returned by `electre.start()` is rejected.  
 
 ## Demo
 

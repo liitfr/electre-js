@@ -5,7 +5,10 @@
   "author": "liitfr",
   "ava": {
     "verbose": "true",
-    "serial": "true"
+    "serial": "true",
+    "files": [
+      "test/**/*.js"
+    ]
   },
   "browser": "./lib/electre.web.min.js",
   "bugs": {

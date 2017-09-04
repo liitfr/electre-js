@@ -5,13 +5,15 @@ import MatrixOperations from './operations';
  * @module electre/utils/concordance
  */
 
-/** Concordance class */
+/**
+ * Concordance class
+ *
+ * @class
+ * @memberof module:electre/utils/concordance
+ */
 class Concordance {
   /**
    * getConcordanceMatrixEI
-   * @memberof Concordance
-   * @method getConcordanceMatrixEI
-   * @static
    * @param {number[][]} array
    * @param {number[]} weights
    * @returns {number[][]}
@@ -45,4 +47,8 @@ class Concordance {
   }
 }
 
-export { Concordance as default };
+export {
+  /**
+   * Concordance class
+   */
+  Concordance as default };

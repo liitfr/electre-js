@@ -7,14 +7,15 @@ import path from 'path';
 
 /**
  * ELECTRE for Node.js usage
- * @module electre/electre.node
+ * @module electre
  */
 
 /**
  * List of supported ELECTRE versions
  * For any new version XX, a worker named XX.worker.js must be implemented
  *
- * @type Array
+ * @type {string[]}
+ * @default
  */
 
 const allowedVersions = ['EI'];
@@ -22,31 +23,26 @@ const allowedVersions = ['EI'];
 /**
  * List of installed workers
  *
- * @type Array
+ * @type {Worker[]}
  */
 
 const installedWorkers = [];
 
-/**
- * ELECTRE Calculator object for Node.js
- * @type {object}
- * @exports electre/node/electre
- * @namespace electre
- */
-
+// ELECTRE Calculator object for Node.js
 const electre = {
 
   /**
    * Calculator's state
-   * @memberof electre
+   *
    * @type {boolean}
+   * @default
    */
 
   _idle: true,
 
   /**
    * Current ELECTRE version requested
-   * @memberof electre
+   *
    * @type {string}
    */
 
@@ -54,22 +50,25 @@ const electre = {
 
   /**
    * Promise object returned by caculator
-   * @memberof electre
-   * @type {Promise}
+   *
+   * @type {Promise.<object>}
    */
 
   _promise: null,
 
   /**
    * Start calculation
-   * @memberof electre
+   *
    * @method start
    * @param {string} version Version of ELECTRE to use
    * @param {object} inputData All data needed by requested worker
    * (the latter will check that data are valid)
    * @returns {Promise.<object>} ELECTRE resolution
-   * @throws
-   * @fires
+   * @throws Will throw an error if calculator is already busy
+   * @throws Will throw an error if given version of ELECTRE isn't supported
+   * @fires Worker#message
+   * @fires Promise#resolve
+   * @fires Promise#reject
    */
 
   start: function start(version, inputData) {
@@ -116,10 +115,10 @@ const electre = {
 
   /**
    * Kill runing calculation 🔫
-   * @memberof electre
+   *
    * @method kill
-   * @throws
-   * @fires
+   * @fires Worker#terminate
+   * @fires Promise#reject
    */
 
   kill: function kill() {
@@ -131,9 +130,17 @@ const electre = {
       // reset idle
       this._idle = true;
     }
-    // else no error
+    // if already idle then no error
   },
 
 };
 
-export { electre as default };
+export {
+  /**
+   * ELECTRE Calculator object for Node.js
+   *
+   * @property {boolean} _idle
+   * @property {string} _version
+   * @property {Promise.<object>} _promise
+   */
+  electre as default };

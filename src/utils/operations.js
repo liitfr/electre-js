@@ -3,13 +3,15 @@
  * @module electre/utils/operations
  */
 
-/** MatrixOperations class */
+/**
+ * MatrixOperations class
+ *
+ * @class
+ * @memberof module:electre/utils/operations
+ */
 class MatrixOperations {
   /**
    * getColumnSum
-   * @memberof MatrixOperations
-   * @method getColumnSum
-   * @static
    * @param {number[][]} array
    * @returns {number[]}
    */
@@ -28,9 +30,6 @@ class MatrixOperations {
 
   /**
    * getElementCountZero
-   * @memberof MatrixOperations
-   * @method getElementCountZero
-   * @static
    * @param {number[]} array
    * @returns {number}
    */
@@ -48,9 +47,6 @@ class MatrixOperations {
 
   /**
    * getNormalizedPerformanceMatrix
-   * @memberof MatrixOperations
-   * @method getNormalizedPerformanceMatrix
-   * @static
    * @param {number[][]} array
    * @returns {number[][]}
    */
@@ -72,9 +68,6 @@ class MatrixOperations {
 
   /**
    * getDelta
-   * @memberof MatrixOperations
-   * @method getDelta
-   * @static
    * @param {number[][]} array
    * @returns {number[]}
    */
@@ -92,9 +85,6 @@ class MatrixOperations {
 
   /**
    * getMinValueInColumn
-   * @memberof MatrixOperations
-   * @method getMinValueInColumn
-   * @static
    * @param {number[][]} array
    * @returns {number[]}
    */
@@ -117,9 +107,6 @@ class MatrixOperations {
 
   /**
    * getMaxValueInColumn
-   * @memberof MatrixOperations
-   * @method getMaxValueInColumn
-   * @static
    * @param {number[][]} array
    * @returns {number[]}
    */
@@ -142,9 +129,6 @@ class MatrixOperations {
 
   /**
    * getMaxValueInRowSorting
-   * @memberof MatrixOperations
-   * @method getMaxValueInRowSorting
-   * @static
    * @param {number[]} array
    * @returns {number}
    */
@@ -157,9 +141,6 @@ class MatrixOperations {
 
   /**
    * getNormalizedWeigths
-   * @memberof MatrixOperations
-   * @method getNormalizedWeigths
-   * @static
    * @param {number[]} array
    * @returns {number[]}
    */
@@ -176,9 +157,6 @@ class MatrixOperations {
 
   /**
    * getWeightsSum
-   * @memberof MatrixOperations
-   * @method getWeightsSum
-   * @static
    * @param {number[]} array
    * @returns {number}
    */
@@ -193,4 +171,8 @@ class MatrixOperations {
   }
 }
 
-export { MatrixOperations as default };
+export {
+  /**
+   * MatrixOperations class
+   */
+  MatrixOperations as default };

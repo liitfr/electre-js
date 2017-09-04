@@ -6,13 +6,15 @@ import Discordance from './discordance';
  * @module electre/utils/credibility
  */
 
-/** Credibility class */
+/**
+ * Credibility class
+ *
+ * @class
+ * @memberof module:electre/utils/credibility
+ */
 class Credibility {
   /**
    * getCredibilityMatrixEI
-   * @memberof Credibility
-   * @method getCredibilityMatrixEI
-   * @static
    * @param {number[][]} array
    * @param {number[]} weights
    * @param {number} p strong preference
@@ -44,4 +46,8 @@ class Credibility {
   }
 }
 
-export { Credibility as default };
+export {
+  /**
+   * Credibility class
+   */
+  Credibility as default };

@@ -5,13 +5,15 @@ import MatrixOperations from './operations';
  * @module electre/utils/discordance
  */
 
-/** Discordance class */
+/**
+ * Discordance class
+ *
+ * @class
+ * @memberof module:electre/utils/discordance
+ */
 class Discordance {
   /**
    * getDiscordanceMatrixEI
-   * @memberof Discordance
-   * @method getDiscordanceMatrixEI
-   * @static
    * @param {number[][]} array
    * @returns {number[][]}
    */
@@ -51,4 +53,8 @@ class Discordance {
   }
 }
 
-export { Discordance as default };
+export {
+  /**
+   * Discordance class
+   */
+  Discordance as default };

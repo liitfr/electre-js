@@ -1,8 +1,9 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
-// Joi makes bundle really, really heavy ...
+// Joi is useful but makes bundles really heavy ...
 // https://github.com/hapijs/joi/issues/528
 import Joi from 'joi';
+
 import MatrixOperations from '../utils/operations';
 import Credibility from '../utils/credibility';
 import Concordance from '../utils/concordance';
@@ -11,18 +12,6 @@ import Discordance from '../utils/discordance';
 /** Worker that calculates ELECTRE I */
 
 self.onmessage = (e) => {
-  // properties     type              rules
-  // alternatives   array of strings  = input.alternatives
-  // concordance    array of arrays   square matrix n * n where
-  //                of numbers        n = alternatives size
-  // discordance    array of arrays   square matrix n * n where
-  //                of numbers        n = alternatives size
-  // credibility    array of arrays   square matrix n * n where
-  //                of numbers        n = alternatives size.
-  //                                  Values = 0 || 1
-  // kernel         array of strings  partition of alternatives
-  // dominated      array of strings  partition of alternatives
-  //
   const inputData = e.data;
 
   const inputSchema = Joi.object().keys({

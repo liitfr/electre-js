@@ -17,7 +17,8 @@ It uses **Workers** to calculate results in a separated thread.
 - [ ] ELECTRE TRI
 - [ ] ELECTRE TRI ME
 
-Algorithms come from [J-Electre](https://github.com/Valdecy/J-Electre).
+Algorithms come from [J-Electre](https://github.com/Valdecy/J-Electre).  
+I'll slowly implement these methods on my spare time.  
 
 ## Web version
 
@@ -55,7 +56,7 @@ where `electre` is an object with two methods : `start` & `kill` as described be
 
 Set calculator state to busy (`electre._idle = false`) and send a message to related worker that will handle calculation. Throws an error if calculator isn't idle.  
 
-#### if version = 'EI'
+#### if version is 'EI'
 
 ##### inputData
 
@@ -74,7 +75,7 @@ An object with following properties :
 
 ##### returns
 
-A promise of an object with following properties ;   
+A promise of an object with following properties :   
 
 | properties   |  type                        | rules                                                             |
 |--------------|------------------------------|-------------------------------------------------------------------|
@@ -88,7 +89,7 @@ A promise of an object with following properties ;
 ### electre.kill()
 
 Ask to `terminate` busy worker and set calculator state back to idle (`electre._idle = true`).  
-Promise returned by `electre.start()` is rejected.  
+Promise returned when `electre.start()` is rejected.  
 
 ## Demo
 

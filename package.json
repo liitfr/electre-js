@@ -5,10 +5,7 @@
   "author": "liitfr",
   "ava": {
     "verbose": "true",
-    "serial": "true",
-    "files": [
-      "test/**/*.js"
-    ]
+    "serial": "true"
   },
   "browser": "./lib/electre.web.min.js",
   "bugs": {
@@ -22,6 +19,7 @@
     "ava": "^0.22.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.0",
     "coveralls": "^2.13.1",
     "eslint": "^4.5.0",
@@ -48,6 +46,12 @@
   "license": "MIT",
   "main": "./lib/electre.node.min.js",
   "module": "./src/electre.node.js",
+  "nyc": {
+    "exclude": [
+      "lib",
+      "test"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liitfr/electre-js.git"
@@ -58,9 +62,12 @@
     "coverage": "nyc --reporter=html ava && open coverage/index.html",
     "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls",
     "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
+    "jsdoc": "jsdoc src/**/*.js --destination documentation",
     "lint": "eslint ./src/",
     "prebuild": "npm run clean",
     "precommit": "npm run test",
+    "precoverage": "rm -rf ./lib/* && WEBPACK_ENV=cov webpack -p",
+    "precoveralls": "rm -rf ./lib/* && WEBPACK_ENV=cov webpack -p",
     "pretest": "npm run lint",
     "test": "ava"
   }

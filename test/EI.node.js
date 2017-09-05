@@ -67,8 +67,6 @@ test('Node - EI worker - Serial executions allowed', async (t) => {
   t.pass();
 });
 
-test.todo('Node - EI worker - correct input parameters');
+test.todo('Node - EI worker - incorrect input parameters support');
 
-test.todo('Node - EI worker - incorrect input parameters');
-
-test.todo('Node - EI worker - output is conform to spec');
+test.todo('Node - EI worker - unknown version of ELECTRE support');

@@ -30,5 +30,8 @@ node_modules
 # Tests
 .nyc_output
 
+# Documentation
+documentation
+
 # Others
 .DS_Store

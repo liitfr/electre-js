@@ -3,12 +3,18 @@ const webpack = require('webpack');
 
 const env = process.env.WEBPACK_ENV;
 const libraryName = 'electre';
+const plugins = [];
 let extension = '.js';
 let devtool = 'inline-source-map';
 
-if (env === 'build') {
+if (env === 'build' || env === 'cov') {
   extension = '.min.js';
-  devtool = 'cheap-module-source-map';
+  if (env === 'build') {
+    devtool = 'cheap-module-source-map';
+  } else {
+    plugins.push('istanbul');
+    devtool = false;
+  }
 }
 
 const nodeConfig = {
@@ -42,6 +48,7 @@ const nodeConfig = {
           loader: 'babel-loader',
           options: {
             presets: ['env'],
+            plugins,
           },
         },
       },
@@ -96,6 +103,7 @@ const webConfig = {
           loader: 'babel-loader',
           options: {
             presets: ['env'],
+            plugins,
           },
         },
       },

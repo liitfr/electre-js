@@ -50,23 +50,51 @@ const expected = {
   dominated: ['a2', 'a3', 'a4'],
 };
 
-test('Node - EI worker - Execute', async (t) => {
+const wrongInput = Object.assign({}, params.inputData, { numberOfCriterias: 99 });
+
+test('Node - EI worker - Execute fine with realistic data', async (t) => {
   const calculation = await electre.start(params.version, params.inputData);
   t.deepEqual(calculation, expected);
 });
 
-test('Node - EI worker - No parallel execution allowed', async (t) => {
+test('Node - EI worker - No parallel execution allowed', (t) => {
   electre.start(params.version, params.inputData).then(() => {}, () => {});
-  t.throws(() => electre.start(params.version, params.inputData));
+  t.throws(() => electre.start(params.version, params.inputData), 'Calculator is already busy 👯');
+  electre.kill();
 });
 
 test('Node - EI worker - Serial executions allowed', async (t) => {
-  electre.kill();
   await electre.start(params.version, params.inputData);
   await electre.start(params.version, params.inputData);
   t.pass();
 });
 
-test.todo('Node - EI worker - incorrect input parameters support');
+test('Node - EI worker - Kill a running calculation', async (t) => {
+  const calculation = electre.start(params.version, params.inputData);
+  electre.kill();
+  await calculation.then(() => {
+    t.fail();
+  }, (err) => {
+    if (err.message.indexOf('Calculation has been killed 🔫') !== -1) {
+      t.pass();
+    } else {
+      t.fail();
+    }
+  });
+});
 
-test.todo('Node - EI worker - unknown version of ELECTRE support');
+test('Node - EI worker - unknown version of ELECTRE support', (t) => {
+  t.throws(() => electre.start('foo', params.inputData), 'This version of ELECTRE isn\'t supported 👀');
+});
+
+test('Node - EI worker - incorrect input parameters support', async (t) => {
+  await electre.start('EI', wrongInput).then(() => {
+    t.fail();
+  }, (err) => {
+    if (err.message.indexOf('Input data doesn\'t respect specified schema') !== -1) {
+      t.pass();
+    } else {
+      t.fail();
+    }
+  });
+});

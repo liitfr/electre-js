@@ -50,6 +50,11 @@
     "exclude": [
       "lib",
       "test"
+    ],
+    "reporter": [
+      "html",
+      "lcov",
+      "text"
     ]
   },
   "repository": {
@@ -59,8 +64,8 @@
   "scripts": {
     "build": "WEBPACK_ENV=build webpack -p",
     "clean": "rm -rf ./lib/*",
-    "coverage": "nyc --reporter=html ava && open coverage/index.html",
-    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls",
+    "coverage": "nyc ava",
+    "coveralls": "nyc ava && cat ./coverage/lcov.info | coveralls",
     "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
     "jsdoc": "jsdoc src/**/*.js --destination documentation",
     "lint": "eslint ./src/",

@@ -105,6 +105,7 @@ const electre = {
         this._promise.reject = getReject;
         return this._promise;
       }
+      this._idle = true;
       throw new Error('This version of ELECTRE isn\'t supported 👀');
     }
   },

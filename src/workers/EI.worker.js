@@ -60,11 +60,11 @@ self.onmessage = (e) => {
       .required(),
   });
 
-  const validationResult = Joi.validate(inputData, inputSchema);
-
-  if (validationResult.err) {
-    throw new Error(`Input Schema doesn't respect specification. ${validationResult.err}`);
-  }
+  Joi.validate(inputData, inputSchema, (err) => {
+    if (err) {
+      throw new Error(`Input data doesn't respect specified schema. ${err}`);
+    }
+  });
 
   let i;
   let j;

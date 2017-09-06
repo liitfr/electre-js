@@ -76,14 +76,14 @@ An object with following properties :
 
 | properties              | mandatory   | expected in methods   | type                          | rules                                                                             |
 |-------------------------|-------------|-----------------------|-------------------------------|-----------------------------------------------------------------------------------|
-| numberOfCriterias       | true        | EI                    | number                        | > 0                                                                               |
-| numberOfAlternatives    | true        | EI                    | number                        | > 1                                                                               |
-| criterias               | true        | EI                    | array of strings              | size = numberOfCriterias, all values are unique, no undefined                     |
-| weights                 | true        | EI                    | array of numbers              | size = size of criterias, no undefined                                            |
-| alternatives            | true        | EI                    | array of strings              | size = numberOfAlternatives, all values are unique, no undefined                  |
-| evaluations             | true        | EI                    | array of arrays of numbers    | matrix n * p where n = size of alternatives & p = size of criterias, no undefined |
-| cThreshold              | true        | EI                    | number                        | 0 < value < 1                                                                     |
-| dThreshold              | true        | EI                    | number                        | 0 < value < 1                                                                     |
+| numberOfCriterias       | true        | I                     | number                        | > 0                                                                               |
+| numberOfAlternatives    | true        | I                     | number                        | > 1                                                                               |
+| criterias               | true        | I                     | array of strings              | size = numberOfCriterias, all values are unique, no undefined                     |
+| weights                 | true        | I                     | array of numbers              | size = size of criterias, no undefined                                            |
+| alternatives            | true        | I                     | array of strings              | size = numberOfAlternatives, all values are unique, no undefined                  |
+| evaluations             | true        | I                     | array of arrays of numbers    | matrix n * p where n = size of alternatives & p = size of criterias, no undefined |
+| cThreshold              | true        | I                     | number                        | 0 < value < 1                                                                     |
+| dThreshold              | true        | I                     | number                        | 0 < value < 1                                                                     |
 
 #### returns
 
@@ -91,12 +91,12 @@ A promise of an object with following properties :
 
 | properties   |  type                        | rules                                                             | returned in methods   |
 |--------------|------------------------------|-------------------------------------------------------------------|-----------------------|
-| inputData    |  object                      | inputData passed to the worker                                    | EI                    |
-| concordance  |  array of arrays of numbers  | square matrix n * n where n = alternatives size                   | EI                    |
-| discordance  |  array of arrays of numbers  | square matrix n * n where n = alternatives size                   | EI                    |
-| credibility  |  array of arrays of numbers  | square matrix n * n where n = alternatives size. Values = 0 or 1  | EI                    |
-| kernel       |  array of strings            | partition of alternatives                                         | EI                    |
-| dominated    |  array of strings            | partition of alternatives                                         | EI                    |
+| inputData    |  object                      | inputData passed to the worker                                    | I                     |
+| concordance  |  array of arrays of numbers  | square matrix n * n where n = alternatives size                   | I                     |
+| discordance  |  array of arrays of numbers  | square matrix n * n where n = alternatives size                   | I                     |
+| credibility  |  array of arrays of numbers  | square matrix n * n where n = alternatives size. Values = 0 or 1  | I                     |
+| kernel       |  array of strings            | partition of alternatives                                         | I                     |
+| dominated    |  array of strings            | partition of alternatives                                         | I                     |
 
 ### electre.kill()
 

@@ -120,7 +120,7 @@ self.onmessage = (e) => {
         kernel.push(inputData.alternatives[i]);
       }
     }
-  } else if (elementCountZero === 0 && setKD === 1) {
+  } else if (elementCountZero === 0 && setKD === 0) {
     for (i = 0; i < vector.length; i += 1) {
       if (vector[i] > 0) {
         dominated.push(inputData.alternatives[i]);

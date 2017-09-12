@@ -18,8 +18,8 @@ Algorithms come from [J-Electre](https://github.com/Valdecy/J-Electre).
 ### Methods for **choosing**
 
 - [x] ELECTRE I
-- [ ] ELECTRE I_s
-- [ ] ELECTRE I_v
+- [ ] ELECTRE Is (Seuil)
+- [ ] ELECTRE Iv (Veto)
 
 ### Methods for **ranking**
 
@@ -30,7 +30,7 @@ Algorithms come from [J-Electre](https://github.com/Valdecy/J-Electre).
 ### Methods for **ordinal classification or sorting**
 
 - [ ] ELECTRE TRI
-- [ ] ELECTRE TRI ME
+- [ ] ELECTRE TRI ME (Multi-Evaluator)
 
 Only checked methods are implemented at this time, I'll slowly implement the others but tell me if you want to focus on a particular one.
 

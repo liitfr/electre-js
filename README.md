@@ -1,9 +1,10 @@
 # electre-js
 
-[![version](https://img.shields.io/npm/v/electre-js.svg?style=flat)](https://www.npmjs.com/package/electre-js)  [![tests](http://img.shields.io/travis/liitfr/electre-js/master.svg?style=flat)](https://travis-ci.org/static-dev/electre-js)
+[![version](https://img.shields.io/npm/v/electre-js.svg?style=flat)](https://www.npmjs.com/package/electre-js)  [![tests](http://img.shields.io/travis/liitfr/electre-js/master.svg?style=flat)](https://travis-ci.org/liitfr/electre-js)
 [![coverage](https://img.shields.io/coveralls/liitfr/electre-js.svg?style=flat)](https://coveralls.io/github/liitfr/electre-js?branch=master)  [![dependencies](http://img.shields.io/david/liitfr/electre-js.svg?style=flat)](https://david-dm.org/liitfr/electre-js)
 [![Greenkeeper badge](https://badges.greenkeeper.io/liitfr/electre-js.svg)](https://greenkeeper.io/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1a2b5421583482891725ddcae612e2e)](https://www.codacy.com/app/liitfr/electre-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=liitfr/electre-js&amp;utm_campaign=Badge_Grade)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ELECTRE is a set of multi-criteria decision analysis methods.  
 If you've never heard of these methods, you can have a look at this [document](http://www.lgi.ecp.fr/~mousseau/mcda-ss/pmwiki-2.1.27/uploads/Main/SlidesFigueira.pdf) from José Rui FIGUEIRA.    

@@ -2,9 +2,5 @@ language: node_js
 node_js:
   - 8.4
 sudo: false
-before_script:
-  - npm run test
-script:
-  - npm run build
 after_script:
   - npm run coveralls

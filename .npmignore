@@ -1,6 +1,6 @@
 src
 test
-contributing.md
+.github
 .editorconfig
 .eslintrc
 .nvmrc

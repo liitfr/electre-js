@@ -21,7 +21,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.0",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",

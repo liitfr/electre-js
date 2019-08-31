@@ -2,7 +2,7 @@
 
 // Joi is useful but makes bundles really heavy ...
 // https://github.com/hapijs/joi/issues/528
-import Joi from 'joi';
+import Joi from '@hapi/joi';
 
 import MatrixOperations from '../utils/operations';
 import Credibility from '../utils/credibility';
